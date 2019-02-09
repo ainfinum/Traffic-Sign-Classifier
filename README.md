@@ -269,7 +269,7 @@ Here is a visualization of predictions:
 
 It's quite interesting to visualize convolution layers to see what characteristics the neural network use to make classifications.
 
-The feature map activations of the first convolution layer clearly show "Road work" sign. And the shape of the "Road work" sign is still visible in the second convolution layer.
+The feature map activations of the first convolution layer clearly show "General caution" sign. And the shape of the "General caution" sign is still visible in the second convolution layer.
 The feature maps activations of the third convolution layer show that this layer searches some specific features of the image. 
 
 Convolution layer 1
