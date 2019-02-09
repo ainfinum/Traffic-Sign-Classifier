@@ -52,11 +52,11 @@ The bar below is showing the data distribution in the training set.
 
 ### 1. Preprocessing the image data
 
-As clearly visible from the data distribution bar chart, but there is a huge variability of the distribution between class instances within the dataset, some classes have less than 250 images but some have 2000 images. 
-I decided to generated additional images using CV library image transformation methods to equalize them.
+As clearly visible from the data distribution bar chart, there is a huge variability of the distribution between class instances within the dataset, some classes have less than 250 images and some have 2000 images. 
+I decided to generate additional images using CV library image transformation methods to equalize them.
 After applying rotation (random angle from -15 to +15 degrees) and image shifting (+-3 pixels) I got the following data set:
 
-* Total images in new training examples = 60503
+* Number of training examples = 60503
 * Average images per class = 1407
 * Classes: 43
 
@@ -67,23 +67,29 @@ Examples of generated images:
 
 ![alt text][image4]
 
-In order to preprocess images for the neural network I did 3 steps:
-1. Grayscale image. Colors is not important information for traffic signs classification task so removing color channels will reduce the data we need to process.
+I preprocess images for the neural network in 3 steps:
+1. Grayscale image. Colors are not important for traffic signs classification task so removing color channels will reduce the data we need to process.
 
 Grayscale image
+
 ![alt text][image5]
+
+
 2. Zero centering - means that I process my data so that the mean (average) of the data lies on the zero
+
+
 3. Normalization - the process of scaling individual samples to have their values in range (-1, 1)
 
 Normalized image
+
 ![alt text][image6]
 
 
 ### 2. Model architecture.
 
-1. I've tried several architectures. With the classic LeNet architecture I was able to get validation accuracy = 0.954 and test accuracy = 0.921
-2. After I tried to add a dropout layer aften convolution or fully connected layer. I got the maximum validation accuracy = 0.957 and test accuracy = 0.935
-3. After several expriments I found that the my model consisted of 3 Convolution and 3 Fully connected layers gives the best performance: validation accuracy = 0.988 and test accuracy = 0.97
+1. I've tried several architectures. With the classic LeNet5 architecture I was able to get validation accuracy = 0.954 and test accuracy = 0.921
+2. I tried to add dropout layers after convolution or fully connected layers. I got the maximum validation accuracy = 0.957 and test accuracy = 0.935
+3. After several expriments I found that my model consisted of 3 convolution and 3 fully connected layers gives the best performance: validation accuracy = 0.985 and test accuracy = 0.974
 
 
 ### 3. Model training. 
@@ -91,15 +97,17 @@ Normalized image
 I've trained models with different hyperparameters in order to find the model with the best accuracy.
 The first architecture I tried was LeNet5 and I got the following validation and test set accuracy:
 
-Best accuracy from LeNet5
+Best accuracy from LeNet5:
+
 | EPOCHS | BATCH_SIZE | Learning rate | Validation Accuracy | Test Accuracy  |
+|--------|:----------:|--------------:|--------------------:|---------------:|
 | 50     | 128        | 0.05          | 0.950               | 0.921          |
 
-Trying different epochs, batch size and learnign rate the best test accuracy I was able to get for this model is 0.921
+I was able to get for this model is 0.921 trying different epochs, batch size and learnign rate the best test accuracy 
 
 
-Trainig LeNet5 with added dropouts produced the following result
-Best accuracy from LeNet5 with dropouts
+Best accuracy from LeNet5 with dropouts:
+
 | EPOCHS | BATCH_SIZE | Learning rate | Dropout rate | Validation Accuracy | Test Accuracy  |
 | 70     | 128        | 0.005         | 0.9          |    0.954            | 0.935          |
 
