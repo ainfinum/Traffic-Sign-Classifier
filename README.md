@@ -109,6 +109,7 @@ I was able to get for this model is 0.921 trying different epochs, batch size an
 Best accuracy from LeNet5 with dropouts:
 
 | EPOCHS | BATCH_SIZE | Learning rate | Dropout rate | Validation Accuracy | Test Accuracy  |
+|--------|:----------:|--------------:|-------------:|--------------------:|---------------:|
 | 70     | 128        | 0.005         | 0.9          |    0.954            | 0.935          |
 
 This model is slightly better but I continued to experiment with model architecture and finaly got beter results.
@@ -124,8 +125,8 @@ This model is slightly better but I continued to experiment with model architect
 Adam optimizer
 
 
-The final model architecture with 6 layers ( 3 convolution and 3 fully connected layers) achived test set accuracy = 0.970. I found that the test accuracy can be different after every new training but it stays beetween 0.96 and 0.97
-With the droupout rate 0.6 or 0.8 the results were not so good, so I think the dropuot layers generalize model and help to avoid overfitting.
+The final model architecture with 6 layers ( 3 convolution and 3 fully connected layers) achived test set accuracy = 0.974. I found that the test accuracy can be different after every new training but it stays beetween 0.965 and 0.975
+With the droupout rate 0.6 or 0.8 the results were not so good, so I think the dropot layers generalize model and help to avoid overfitting.
 
 
 Final model architecture:
@@ -155,6 +156,7 @@ I think adding 1 or 2 convolution layers (to make the model similar to VGG16) ca
 Final model results:
 
 | EPOCHS | BATCH_SIZE | Learning rate | Dropout rate | Training Set Accuracy | Validation Accuracy | Test Accuracy  |
+|--------|:----------:|--------------:|-------------:|----------------------:|--------------------:|---------------:|
 | 10     | 64         | 0.001         | 0.5          | 0.99                  |  0.985              | 0.974          | 
 | 10     | 64         | 0.001         | 0.5          | 0.99                  |  0.988              | 0.970          | 
 
@@ -190,7 +192,7 @@ Here are the results of the prediction:
 | Speed limit (60km/h)	| Speed limit (60km/h)     		 				|
 
 
-The model correctly predicted 7 of the 8 traffic signs which gives an accuracy of 88%. It less than the accuracy on the test set of 97% but I have very small test set to compare these results.
+The model correctly predicted 7 of the 8 traffic signs which gives an accuracy of 88%. It less than the accuracy on the test set of 97% but my new test set is very small to compare these results.
 I think the model will be able to classify the last image correctly if I will generate images with perspective distortion and add them into the training set.
 
 
@@ -203,6 +205,7 @@ Image 1: The model is 100% confident that this is a "Priority road" sign (probab
 Image 2: The model is 100% confident that this is a "Stop" sign (probability of 1.0)
 
 Image 3: "No entry" sign was classified correctly
+
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | .999         			| No entry				                		| 
@@ -210,6 +213,7 @@ Image 3: "No entry" sign was classified correctly
 
 
 Image 4: The model classified correctly the "General caution" sign
+
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | .999        			| General caution				           		| 
@@ -218,11 +222,11 @@ Image 4: The model classified correctly the "General caution" sign
 
 Image 5: The model is 100% confident that this is a "Speed limit (50km/h)" sign (probability of 1.0)
 
-Image 6: The model completely failed to predict "Road work" sign and and the correct prediction is not present in THE top 5 softmax probabilities:
+Image 6: The model completely failed to predict "Road work" sign and and the correct prediction is not present in the top 5 softmax probabilities:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .964         			| Priority road         						| 
+| .9646        			| Priority road         						| 
 | .0177   				| Beware of ice/snow                    		|
 | .0106					| Right-of-way at the next intersection 		|
 | .0022	      			| Bicycles crossing    							|
@@ -243,13 +247,14 @@ Image 8: The model classified correctly the "Stop" sign despite the fact that im
 
 
 Image 9: The model classified correctly the "Speed limit (60km/h)" sign
+
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | .999        			| Speed limit (60km/h)			           		| 
 | .00037          		| Speed limit (80km/h)                 			|
 
 
-Here is a visualizations of prediction as bar charts:
+Here is a visualizations of predictions:
 ![alt text][image8]
 
 
@@ -258,7 +263,7 @@ Here is a visualizations of prediction as bar charts:
 
 It's quite interesting to vizualize convolution layers to see what characteristics the neural network use to make classifications.
 
-The feature map activations of the first convolution layer clearly shows "General caution" sign. And the shape of the "General caution" sign is still visible on the second convolution layer.
+The feature map activations of the first convolution layer clearly shows "General caution" sign. And the shape of the "General caution" sign is still visible in the second convolution layer.
 The feature maps activations of the third convolution layer show that this layer search some specific areas of the image. 
 
 Convolotion layer 1
