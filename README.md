@@ -39,7 +39,7 @@ After loading the data I got the summary statistics of the traffic signs data se
 
 ### 2. Visualization of the dataset.
 
-This grid of images is representing chosen random image from the training set.
+This grid of images is representing random choosen images from the training set.
 
 
 ![alt text][image1]
@@ -78,7 +78,7 @@ Grayscale image
 2. Zero centering - means that I process my data so that the mean (average) of the data lies on the zero
 
 
-3. Normalization - the process of scaling individual samples to have their values in range (-1, 1)
+3. Normalization - the process of scaling individual samples to have their values in the range (-1, 1)
 
 Normalized image
 
@@ -89,7 +89,7 @@ Normalized image
 
 1. I've tried several architectures. With the classic LeNet5 architecture I was able to get validation accuracy = 0.954 and test accuracy = 0.921
 2. I tried to add dropout layers after convolution or fully connected layers. I got the maximum validation accuracy = 0.957 and test accuracy = 0.935
-3. After several expriments I found that my model consisted of 3 convolution and 3 fully connected layers gives the best performance: validation accuracy = 0.985 and test accuracy = 0.974
+3. After several experiments I found that my model consisted of 3 convolutions and 3 fully connected layers give the best performance: validation accuracy = 0.985 and test accuracy = 0.974
 
 
 ### 3. Model training. 
@@ -103,7 +103,7 @@ Best accuracy from LeNet5:
 |--------|:----------:|--------------:|--------------------:|---------------:|
 | 50     | 128        | 0.05          | 0.950               | 0.921          |
 
-I was able to get for this model is 0.921 trying different epochs, batch size and learnign rate the best test accuracy 
+I was able to get for this model is 0.921 trying different epochs, batch size and learning rate the best test accuracy 
 
 
 Best accuracy from LeNet5 with dropouts:
@@ -112,7 +112,7 @@ Best accuracy from LeNet5 with dropouts:
 |--------|:----------:|--------------:|-------------:|--------------------:|---------------:|
 | 70     | 128        | 0.005         | 0.9          |    0.954            | 0.935          |
 
-This model is slightly better but I continued to experiment with model architecture and finaly got beter results.
+This model is slightly better but I continued to experiment with model architecture and finally got better result.
 
 ### Final model architecture
 #### Hyperparameters
@@ -125,8 +125,8 @@ This model is slightly better but I continued to experiment with model architect
 Adam optimizer
 
 
-The final model architecture with 6 layers ( 3 convolution and 3 fully connected layers) achived test set accuracy = 0.974. I found that the test accuracy can be different after every new training but it stays beetween 0.965 and 0.975
-With the droupout rate 0.6 or 0.8 the results were not so good, so I think the dropot layers generalize model and help to avoid overfitting.
+The final model architecture with 6 layers ( 3 convolutions and 3 fully connected layers) achieved test set accuracy = 0.974. I found that the test accuracy can be different after every new training but it stays between 0.965 and 0.975
+With the dropout rate 0.6 or 0.8 the results were not so good, so I think the dropout layers generalize model and help to avoid overfitting.
 
 
 Final model architecture:
@@ -150,8 +150,8 @@ Final model architecture:
 |						|												|
  
 
-I was surprised that model was able to get the test accuracy = 0.974 just in 10 epochs and it takes less than 2 minutes for training it in GPU mode.
-I think adding 1 or 2 convolution layers (to make the model similar to VGG16) can produce even greater result. 
+I was surprised that the model was able to get the test accuracy = 0.974 just in 10 epochs and it takes less than 2 minutes for training it in GPU mode.
+I think adding 1 or 2 convolution layers (to make the model similar to VGG16) can produce an even greater result. 
  
 Final model results:
 
@@ -169,13 +169,13 @@ In order to test my model on new images I found 9 German traffic signs on the we
 
 ![alt text][image7]
 
-I used 7 good quality images and 2 images with different perspective. I think one of the "Stop" and "Road works" signs might be difficult to classify correctly. 
+I used 7 good quality images and 2 images with a different perspective. I think one of the "Stop" and "Road work" signs might be difficult to classify correctly. 
  
  
 ### 2. The model's predictions on new traffic signs
 
-As I expected the model classified correctly 7 good quality images. The "Stop" sign with transformed perspective was also classified correctly but I thought that the model will fail on this image.
-The model was not able to classify "Road work" image with changed perspective.
+As I expected the model classified correctly 7 good quality images. The "Stop" sign with a transformed perspective was also classified correctly but I thought that the model will fail on this image.
+The model was not able to classify "Road work" image with a changed perspective.
 
 Here are the results of the prediction:
 
@@ -222,7 +222,7 @@ Image 4: The model classified correctly the "General caution" sign
 
 Image 5: The model is 100% confident that this is a "Speed limit (50km/h)" sign (probability of 1.0)
 
-Image 6: The model completely failed to predict "Road work" sign and and the correct prediction is not present in the top 5 softmax probabilities:
+Image 6: The model completely failed to predict "Road work" sign and the correct prediction is not present in the top 5 softmax probabilities:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -235,7 +235,7 @@ Image 6: The model completely failed to predict "Road work" sign and and the cor
  
 Image 7: The model is 100% confident that this is a "Children crossing" sign (probability of 1.0)
 
-Image 8: The model classified correctly the "Stop" sign despite the fact that image is poor quality with transformed perspective.
+Image 8: The model classified correctly the "Stop" sign despite the fact that image is poor quality with a transformed perspective.
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -254,29 +254,29 @@ Image 9: The model classified correctly the "Speed limit (60km/h)" sign
 | .00037          		| Speed limit (80km/h)                 			|
 
 
-Here is a visualizations of predictions:
+Here is a visualization of predictions:
 ![alt text][image8]
 
 
  
 ## Visualizing the Neural Network
 
-It's quite interesting to vizualize convolution layers to see what characteristics the neural network use to make classifications.
+It's quite interesting to visualize convolution layers to see what characteristics the neural network use to make classifications.
 
-The feature map activations of the first convolution layer clearly shows "General caution" sign. And the shape of the "General caution" sign is still visible in the second convolution layer.
-The feature maps activations of the third convolution layer show that this layer search some specific areas of the image. 
+The feature map activations of the first convolution layer clearly show "General caution" sign. And the shape of the "General caution" sign is still visible in the second convolution layer.
+The feature maps activations of the third convolution layer show that this layer searches some specific features of the image. 
 
-Convolotion layer 1
+Convolution layer 1
 
 ![alt text][image9]
 
 
-Convolotion layer 2
+Convolution layer 2
 
 ![alt text][image10]
 
 
-Convolotion layer 3
+Convolution layer 3
 
 ![alt text][image11]
 
