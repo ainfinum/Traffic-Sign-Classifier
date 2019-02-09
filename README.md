@@ -28,7 +28,7 @@ The goals / steps of this project are the following:
 ## Data Set Summary & Exploration
 
 ### 1. A basic summary of the data set. 
-
+The [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) will be used to train a model to classify traffic signs.
 After loading the data I got the summary statistics of the traffic signs data set:
 
 * Number of training examples = 34799
